@@ -9,12 +9,12 @@ export default class Numbers extends React.Component {
 
     render() {
         const {selectedNumbers, usedNumbers, selectNumber} = this.props;
-        let className = '', numbers = [];
+        let numbers = [];
         for (let i = 1; i <= 9; i++) {
-            className = "number selected-" + (selectedNumbers.indexOf(i) >= 0);
-            className += " used-" + (usedNumbers.indexOf(i) >= 0);
+            const selectionClass = `${selectedNumbers.indexOf(i) >= 0 ? 'selected' : ''}`;
+            const usedClass = `${usedNumbers.indexOf(i) >= 0 ? 'used' : ''}`;
             numbers.push(
-                <div className={className} onClick={selectNumber.bind(null, i)}>
+                <div className={`number ${selectionClass} ${usedClass}`} onClick={selectNumber.bind(null, i)}>
                     {i}
                 </div>
             );

@@ -4,39 +4,26 @@ export default class Button extends React.Component {
     static propTypes = {
         correct: PropTypes.bool.isRequired,
         acceptAnswer: PropTypes.func.isRequired,
-        checkAnswer: PropTypes.func.isRequired
+        checkAnswer: PropTypes.func.isRequired,
+        redraw: PropTypes.func.isRequired,
+        redraws: PropTypes.number.isRequired
     };
 
     render() {
-        let button = null;
-        switch (this.props.correct) {
-            case true:
-                button = (
-                    <button className="btn btn-success btn-lg"
-                            onClick={this.props.acceptAnswer}>
-                       OK
-                    </button>
-                );
-                break;
-            case false:
-                button = (
-                    <button className="btn btn-danger btn-lg">
-                       Remove
-                    </button>
-                );
-                break;
-            default:
-                disabled = (this.props.selectedNumbers.length === 0);
-                button = (
-                    <button className="btn btn-primary btn-lg" disabled={disabled}
-                            onClick={this.props.checkAnswer}>
-                        =
-                    </button>
-                );
-        }
+        const {correct, checkAnswer, redraw, redraws} = this.props;
+
         return (
             <div id="button-frame">
-                {button}
+                <button className="btn btn-primary btn-lg" onClick={checkAnswer}>
+                    =
+                </button>
+                <br /><br />
+                <button className="btn btn-warning btn-xs" onClick={redraw}
+                        disabled={redraws === 0}>
+                    <span className="glyphicon glyphicon-refresh">Redraw</span>
+                    &nbsp;
+                    {redraws}
+                </button>
             </div>
         );
     }

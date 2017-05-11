@@ -6,16 +6,11 @@ export default class Stars extends React.Component {
     };
 
     render() {
-        let stars = [];
-        for (let i = 0; i < this.props.numberOfStars; i++) {
-            stars.push(
-                <span>*</span>
-            );
-        }
+       const {numberOfStars} = this.props;
         return (
             <div id="stars-frame">
                 <div className="well">
-                    {stars}
+                    {[...Array(numberOfStars).keys()].map(number => <span>*</span>)}
                 </div>
             </div>
         );

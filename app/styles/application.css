@@ -29,7 +29,7 @@
 }
 
 #button-frame button{
-    width: 50px;
+    min-width: 50px;
     height: 50px;
 }
 
@@ -52,13 +52,13 @@
     cursor: pointer;
 }
 
-#numbers-frame .selected-true {
+#numbers-frame .selected {
     background-color: #e8e8e8;
     color: #ddd;
     cursor: not-allowed;
 }
 
-#numbers-frame .used-true {
+#numbers-frame .used {
     background-color: #aaddaa;
     color: #99bb99;
     cursor: not-allowed;
