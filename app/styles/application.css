@@ -54,13 +54,13 @@
 }
 
 #numbers-frame .selected {
-    background-color: #e8e8e8;
+    background-color: green;
     color: #ddd;
     cursor: not-allowed;
 }
 
 #numbers-frame .used {
-    background-color: #aaddaa;
+    background-color: blue;
     color: #99bb99;
     cursor: not-allowed;
 }
